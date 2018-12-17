@@ -1,0 +1,29 @@
+Field name,Type,Description
+id,STRING,Request ID assigned by the canvas system to the request.
+timestamp,DATETIME,Timestamp when the request was made in UTC.
+timestamp_year,STRING,"Year when the request was made. (e.g., 2014)"
+timestamp_month,STRING,Month when the request was made. (2014-11)
+timestamp_day,DATE,"Day when the request was made. (e.g., 2014-11-25)"
+user_id,INTEGER,unique ID for each user. 
+course_id,INTEGER,Foreign key in course_dim for the course that owned the page requested. Set to NULL if not applicable.
+root_account_id,INTEGER,Foreign key in account_dim for the root account on which this request was made.
+course_account_id,INTEGER,Foreign key in account_dim for the account the associated course is owned by.
+quiz_id,INTEGER,"Foreign key in quiz_dim if the page request is for a quiz, otherwise NULL."
+discussion_id,INTEGER,"Foreign key in discussion_dim if page request is for a discussion, otherwise NULL."
+conversation_id,INTEGER,"Foreign key in conversation_dim if page request is for a conversation, otherwise NULL."
+assignment_id,INTEGER,"Assignment foreign key if page request is for an assignment, otherwise NULL."
+url,STRING,URL which was requested. 
+user_agent,STRING,User agent header received from the users browser/client software.
+http_method,STRING,"HTTP method/verb (GET, PUT, POST etc.) that was sent with the request."
+remote_ip,STRING,IP address that was recorded from the request. 
+interaction_micros,INTEGER,Total time required to service the request in microseconds.
+web_application_controller,STRING,The controller the Canvas web application used to service this request.
+web_application_action,STRING,Controller the Canvas web application used to service this request.
+web_application_context_type,STRING,Containing object type the Canvas web application used to service this request.
+web_application_context_id,STRING,Containing object's ID the Canvas web application used to service this request.
+real_user_id,INTEGER,"If the request was processed by one user masquerading as another, then this column contains the real user ID of the user."
+session_id,STRING,ID of the user's session where this request was made.
+user_agent_id,INTEGER,(Not implemented) Foreign key to the user agent dimension table.
+http_status,STRING,HTTP status of the request.
+http_version,STRING,HTTP protocol version.
+developer_key_id,INTEGER,ID of the developer who accessed this page if the request was made by a developer.
