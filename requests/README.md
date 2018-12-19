@@ -10,4 +10,5 @@ Disclaimer: The data in the requests table is a 'best effort' attempt, and is no
 ## Queries
 This folder contains the following queries:
 1. [timeOnAssignments](./01_timeOnAssignments.sql)
-2. ...
+2. [timeBetweenFirstAccessandDeadline](./02_timeBetweenFirstAccessandDeadline.sql)
+3. ...
