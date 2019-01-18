@@ -1,6 +1,4 @@
 /* Computes average number of requests (proxy for number of page views) in which an enrollment accessed an assignment */
-CREATE OR REPLACE TABLE
-  data4ml.feature04_afterWeek15 AS
 WITH
   numAssnRequests AS ( --subquery calculates number of reqeusts by an enrollment within a section
   SELECT
