@@ -18,8 +18,8 @@ WITH
     assn.workflow_state = 'published'
     AND subm.workflow_state NOT IN ('unsubmitted',
       'deleted')
-    AND submitted_at BETWEEN '2018-08-20'
-    AND '2018-09-10')
+    AND submitted_at >= '2018-08-20'
+    AND submitted_at <= '2018-09-10')
 SELECT
   DISTINCT course_id,
   user_id,
