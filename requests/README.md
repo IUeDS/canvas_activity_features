@@ -10,6 +10,19 @@ Descriptions of fields in the **Requests** table are listed in [requests_fields.
 
 ## Queries
 This folder contains the following queries:
-1. [timeOnAssignments](./01_timeOnAssignments.sql)
-2. [timeBetweenFirstAccessandDeadline](./02_timeBetweenFirstAccessandDeadline.sql)
-3. ...
+* [timeOnAssignments](./01_timeOnAssignments.sql)
+* [timeBetweenFirstAccessandDeadline](./02_timeBetweenFirstAccessandDeadline.sql)
+* [avgSessionDuration](./03_avgSessionDuration.sql)
+* [avgRequests](./04_avgRequests.sql)
+* [landingCount](./05-10_landingCount.sql)
+** Includes a set of features for different landing pages after viewing an assignment page
+* [timeBetweenFirstAccessAndSubmission](./11_timeBetweenFirstAccessAndSubmission.sql)
+* [timeOfSubmission](./12-14_timeOfSubmission.sql)
+** Includes 3 features for different categories of time of day
+* [numberOfSubmissions](./15_numberOfSubmissions.sql)
+* [assignmentViews](./16-17_assignmentViews.sql)
+** Includes two features counting views before and after the assignment deadline
+* [numberOfSessions](./18_numberOfSessions.sql)
+* [viewsOfCanvasCalendar](./19_viewsOfCanvasCalendar.sql)
+* [longestPeriodOfInactivity](./20_longestPeriodOfInactivity.sql)
+
