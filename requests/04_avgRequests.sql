@@ -5,8 +5,7 @@ WITH
     id,
     user_id,
     REGEXP_EXTRACT(url,r'assignments\/(\d+)') AS assignment_id,
-    session_id AS this_session,
-    LEAD(session_id) OVER (ORDER BY user_id, timestamp) AS next_session,
+    session_id,
     url,
     course_id,
     web_application_action,
@@ -20,7 +19,7 @@ WITH
     timestamp ),
   sessionsWithAssignmentViews AS (
   SELECT
-    DISTINCT this_session
+    DISTINCT session_id
   FROM
     theseRequests
   WHERE
@@ -31,20 +30,19 @@ WITH
     COUNT(a.id) AS cntRequests,
     a.user_id,
     a.course_id,
-    b.this_session
+    b.session_id
   FROM
     theseRequests a
   JOIN
     sessionsWithAssignmentViews b
   ON
-    a.this_session = b.this_session
+    a.session_id = b.session_id
   WHERE
-    a.this_session = a.next_session
-    AND web_application_action = 'show'
+    web_application_action = 'show'
   GROUP BY
     a.user_id,
     a.course_id,
-    b.this_session )
+    b.session_id )
 SELECT
   user_id,
   course_id,
