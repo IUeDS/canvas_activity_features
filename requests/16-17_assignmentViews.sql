@@ -14,8 +14,8 @@ WITH
   ON
     CAST(REGEXP_EXTRACT(a.url,r'assignments\/(\d+)') AS INT64) = b.canvas_id
   WHERE
-    timestamp_day BETWEEN '2018-11-26'
-    AND '2018-12-16'
+    timestamp_day BETWEEN '2018-08-20'
+    AND '2018-09-10'
     AND a.course_id IS NOT NULL
   ORDER BY
     user_id,
