@@ -12,14 +12,14 @@ WITH
     web_application_controller
   FROM
     canvas_data.requests
-  WHERE timestamp_day BETWEEN '2018-08-20'
+  WHERE
+    timestamp_day BETWEEN '2018-08-20'
     AND '2018-09-10'
-  ORDER BY
-    user_id,
-    timestamp ),
+    AND course_id IS NOT NULL ),
   sessionsWithAssignmentViews AS (
   SELECT
-    DISTINCT session_id
+    DISTINCT session_id,
+    course_id
   FROM
     theseRequests
   WHERE
@@ -37,8 +37,10 @@ WITH
     sessionsWithAssignmentViews b
   ON
     a.session_id = b.session_id
+    AND a.course_id = b.course_id
   WHERE
     web_application_action = 'show'
+    AND b.course_id IS NOT NULL
   GROUP BY
     a.user_id,
     a.course_id,
