@@ -1,4 +1,5 @@
-  /* Calculates quantity of assignment submissions per enrollment within three different categories: day, evening, night */
+/* Calculates quantity of assignment submissions per enrollment within three different categories: day, evening, night */
+/* NB: This query does not use the requests table */
 WITH
   submHour AS (
   SELECT
