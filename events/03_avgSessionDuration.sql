@@ -22,7 +22,7 @@ WITH
     session_id,
     SUM(timebetweenEvents) AS sessionDuration
   FROM
-    assnSessionTimeDiff
+    sessionTimeDiff
   WHERE
     timebetweenEvents <= 1500 --ignore periods of inactivity > 25 minutes
   GROUP BY
@@ -35,7 +35,7 @@ SELECT
   user_id,
   AVG(sessionDuration) AS avgSessionDuration
 FROM
-  assnTimeSession
+  sessionSumTime
 GROUP BY
   course_id,
   user_id
