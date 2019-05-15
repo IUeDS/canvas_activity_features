@@ -31,7 +31,7 @@ WITH
 
 SELECT user_id,
   course_id,
-  AVG(eventTypes)
+  AVG(eventTypes) AS avgEventTypes
 FROM eventCountBySession
 GROUP BY user_id,
   course_id
