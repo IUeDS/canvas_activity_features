@@ -1,6 +1,6 @@
 /* Computes duration of a web session in which an assignment was accessed for each enrollment */
 WITH
-  assnSessionTimeDiff AS (
+  sessionTimeDiff AS (
   SELECT
     SUBSTR(JSON_EXTRACT_SCALAR(event,"$[actor][id]"),-7,7) AS user_id,
     SUBSTR(JSON_EXTRACT_SCALAR(event,"$[session][id]"),-32,32) AS session_id,
