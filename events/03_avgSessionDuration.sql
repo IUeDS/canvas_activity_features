@@ -15,7 +15,7 @@ WITH
     AND SUBSTR(JSON_EXTRACT_SCALAR(event,"$[session][id]"),-32,32) IS NOT NULL
     AND EXTRACT(DATE FROM event_time) BETWEEN '2019-01-07' AND '2019-01-21'
     AND JSON_EXTRACT_SCALAR(event,"$[actor][type]") = "Person"),
-  assnTimeSession AS (
+  sessionSumTime AS (
   SELECT
     course_id,
     user_id,
