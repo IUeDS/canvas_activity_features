@@ -15,7 +15,7 @@ WITH
     PARSE_DATE("%Y-%m-%d", SUBSTR(json_extract_scalar(a.event, "$[eventTime]"),0, 10)) AS TIMESTAMP_DAY
 FROM `udp-iu-prod.event_store.events` a
 INNER JOIN `iu-uits-tlt-la.canvas_data.assignment_dim` b
-ON CAST(json_extract_scalar(a.event, "$[federatedSession][messageParameters][custom_canvas_user_id]") AS INT64) = b.canvas_id
+ON CAST(json_extract_scalar(a.event, "$[federatedSession][messageParameters][custom_canvas_assignment_id]") AS INT64) = b.canvas_id
     AND type = "AssessmentEvent"
     AND due_at IS NOT NULL
     AND json_extract_scalar(a.event,
@@ -39,11 +39,10 @@ ON CAST(json_extract_scalar(a.event, "$[federatedSession][messageParameters][cus
   SELECT
     course_id,
     user_id,
-    AVG(firstTimeBeforeDue) AS timeBetweenFirstAccessandDeadline
+    ROUND(AVG(firstTimeBeforeDue),2) AS timeBetweenFirstAccessandDeadline
   FROM
     maxtimebefore
   GROUP BY
     course_id,
     user_id
-  ORDER BY
-    timeBetweenFirstAccessandDeadline DESC
+    
